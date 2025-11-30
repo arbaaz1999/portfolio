@@ -26,12 +26,17 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import Image from "next/image";
+
+type FormDataType = {
+  name: string;
+  email: string;
+  message: string;
+};
 
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [activeSection, setActiveSection] = useState<string>("home");
-  const [formData, setFormData] = useState<any>({
+  const [formData, setFormData] = useState<FormDataType>({
     name: "",
     email: "",
     message: "",
@@ -56,7 +61,7 @@ const Portfolio = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: any) => {
+  const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: "smooth" });
     setIsMenuOpen(false);
@@ -89,7 +94,7 @@ const Portfolio = () => {
     {
       company: "CapxAI",
       role: "Associate Software Engineer",
-      duration: "August'2023 - Dec'2024",
+      duration: "August-2023 - Dec-2024",
       responsibilities: [
         "Developed a Telegram Mini-App from scratch using Next.js, taking full ownership of UI development. Utilized TailwindCSS and NextUI to build a responsive and interactive user interface, and integrated backend APIs seamlessly using Axios for dynamic data handling.",
         "Optimized application load performance by leveraging IndexedDB to cache user data locally. Fetched user data from IndexedDB on initial load to minimize latency, while asynchronously retrieving and updating fresh data from the API in the background. This strategy significantly enhanced perceived load time and overall user experience.",
@@ -102,7 +107,7 @@ const Portfolio = () => {
     {
       company: "Codiotic Technologies Pvt. Ltd.",
       role: "Junior Software Engineer",
-      duration: "Nov'2022 - Apr'2022",
+      duration: "Nov-2022 - Apr-2022",
       responsibilities: [
         "Acquired hands-on experience with the MERN stack – Gained practical knowledge in ReactJS, NodeJS, ExpressJS, and MongoDB, building full-stack applications from scratch.",
         "Developed RESTful APIs using NodeJS, ExpressJS, and MongoDB, and built responsive, interactive user interfaces with ReactJS and TailwindCSS for seamless front-end experiences.",
@@ -118,7 +123,7 @@ const Portfolio = () => {
         "A stunning, futuristic personal portfolio showcasing full-stack development expertise with a cyberpunk-inspired dark theme. Built with React, Vite, TailwindCSS, and shadcn/ui components, this fully responsive website features neon-glow aesthetics, smooth animations, and interactive elements.",
       tech: ["Next.js", "TailwindCSS", "ShadcnUI", "Typescript"],
       demo: "#",
-      github: "https://github.com/arbaaz1999",
+      github: "https://github.com/arbaaz1999/portfolio",
     },
     {
       id: "ai_image_editor",
@@ -326,10 +331,11 @@ const Portfolio = () => {
             </CardHeader>
             <CardContent className="space-y-6">
               <p className="text-slate-300 leading-relaxed">
-                I'm a passionate full-stack developer with expertise in building
-                modern, scalable web applications. With a strong foundation in
-                both frontend and backend technologies, I love creating seamless
-                user experiences backed by robust server architecture.
+                I&apos;m a passionate full-stack developer with expertise in
+                building modern, scalable web applications. With a strong
+                foundation in both frontend and backend technologies, I love
+                creating seamless user experiences backed by robust server
+                architecture.
               </p>
 
               <p className="text-slate-300 leading-relaxed">
@@ -337,7 +343,7 @@ const Portfolio = () => {
                 diverse skill set and the ability to adapt to new technologies
                 quickly. I thrive in collaborative environments and am always
                 eager to tackle challenging projects that push the boundaries of
-                what's possible.
+                what&apos;s possible.
               </p>
 
               <div className="pt-4">
@@ -434,7 +440,7 @@ const Portfolio = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
               <Card
-                key={index}
+                key={project.id}
                 className="bg-slate-900/50 border-cyan-500/30 backdrop-blur-sm hover:border-cyan-400/50 hover:shadow-[0_0_40px_rgba(6,182,212,0.2)] transition-all duration-300 group"
               >
                 <CardHeader>
@@ -469,7 +475,7 @@ const Portfolio = () => {
                     >
                       <a
                         href={project.demo}
-                        target="_blank"
+                        target={project.id === "portfolio" ? "_self" : "_blank"}
                         rel="noopener noreferrer"
                       >
                         <ExternalLink className="mr-2 h-4 w-4" />
@@ -514,7 +520,8 @@ const Portfolio = () => {
                 Send Me a Message
               </CardTitle>
               <CardDescription className="text-slate-300">
-                I'm always open to discussing new projects and opportunities.
+                I&apos;m always open to discussing new projects and
+                opportunities.
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -558,7 +565,7 @@ const Portfolio = () => {
                 {formStatus === "success" && (
                   <Alert className="bg-cyan-500/10 border-cyan-500/30 text-cyan-400">
                     <AlertDescription>
-                      Message sent successfully! I'll get back to you soon.
+                      Message sent successfully! I&apos;ll get back to you soon.
                     </AlertDescription>
                   </Alert>
                 )}
