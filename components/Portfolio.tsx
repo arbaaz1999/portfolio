@@ -14,6 +14,7 @@ import {
   Server,
   Briefcase,
   Download,
+  Loader2,
 } from "lucide-react";
 import {
   Card,
@@ -41,7 +42,9 @@ const Portfolio = () => {
     email: "",
     message: "",
   });
-  const [formStatus, setFormStatus] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [message, setMessage] = useState<string>("");
+  const [formStatus, setFormStatus] = useState<"success" | "error" | "">("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,11 +70,39 @@ const Portfolio = () => {
     setIsMenuOpen(false);
   };
 
-  const handleFormSubmit = () => {
-    if (formData.name && formData.email && formData.message) {
+  const handleFormSubmit = async () => {
+    if (!formData.name || !formData.email || !formData.message) {
+      setFormStatus("error");
+      setMessage("Please fill all the required fields!");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/message", {
+        method: "POST",
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      await res.json();
       setFormStatus("success");
-      setTimeout(() => setFormStatus(null), 3000);
-      setFormData({ name: "", email: "", message: "" });
+      setMessage("Message sent successfully, I'll get back to you soon!");
+    } catch (error) {
+      console.log("Error Sending Message : ", error);
+      setFormStatus("error");
+      setMessage("Error Sending Message, Please Try Again!");
+    } finally {
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+      setLoading(false);
     }
   };
 
@@ -569,13 +600,25 @@ const Portfolio = () => {
                     </AlertDescription>
                   </Alert>
                 )}
+                {formStatus === "error" && (
+                  <Alert className="bg-red-500/10 border-red-500/30 text-red-400">
+                    <AlertDescription>{message}</AlertDescription>
+                  </Alert>
+                )}
 
                 <Button
+                  disabled={loading}
                   onClick={handleFormSubmit}
-                  className="w-full bg-linear-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0 shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] transition-all duration-300"
+                  className="w-full bg-linear-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0 shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] transition-all duration-300 cursor-pointer"
                 >
-                  <Send className="mr-2 h-4 w-4" />
-                  Send Message
+                  {loading ? (
+                    <Loader2 />
+                  ) : (
+                    <>
+                      <Send className="mr-2 h-4 w-4" />
+                      Send Message
+                    </>
+                  )}
                 </Button>
               </div>
 
