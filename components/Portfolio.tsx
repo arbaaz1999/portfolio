@@ -289,7 +289,7 @@ const Portfolio = () => {
               variant="outline"
               className="border-emerald-500/50 text-emerald-400 hover:bg-emerald-500/10 hover:border-emerald-400 hover:shadow-[0_0_15px_rgba(16,185,129,0.2)] transition-all duration-300"
             >
-              <a href="/Arbaaz_SE_2YoE_Next.pdf" download>
+              <a href="/Arbaaz_SE_2YoE_wProjects.pdf" download>
                 <Download className="mr-2 h-5 w-5" />
                 Resume
               </a>
@@ -659,7 +659,7 @@ const Portfolio = () => {
                     variant="outline"
                     className="border-emerald-500/50 text-emerald-400 hover:bg-emerald-500/10 hover:border-emerald-400 hover:shadow-[0_0_15px_rgba(16,185,129,0.2)] hover:text-cyan-500 transition-all duration-300"
                   >
-                    <a href="/Arbaaz_SE_2YoE_Next.pdf" download>
+                    <a href="/Arbaaz_SE_2YoE_wProjects.pdf" download>
                       <Download className="mr-2 h-5 w-5" />
                       Download Resume
                     </a>
