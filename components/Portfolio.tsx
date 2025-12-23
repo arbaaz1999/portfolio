@@ -148,13 +148,25 @@ const Portfolio = () => {
 
   const projects = [
     {
-      id: "portfolio",
-      title: "Personal Portfolio",
+      id: "realtime-stock-tracking-app",
+      title: "Signalist - Real Time Stocks Tracking App",
       description:
-        "A stunning, futuristic personal portfolio showcasing full-stack development expertise with a cyberpunk-inspired dark theme. Built with React, Vite, TailwindCSS, and shadcn/ui components, this fully responsive website features neon-glow aesthetics, smooth animations, and interactive elements.",
-      tech: ["Next.js", "TailwindCSS", "ShadcnUI", "Typescript"],
-      demo: "#",
-      github: "https://github.com/arbaaz1999/portfolio",
+        "AI-powered modern stock market app built with Next.js, Shadcn, Better Auth, and Inngest! Track real-time prices, set personalized alerts, explore company insights, and manage watchlists. The admin dashboard allows managing stocks, publishing news, and monitoring user activity, while event-driven workflows power automated alerts, AI-driven daily digests, earnings notifications, and sentiment analysis—perfect for devs who want a dynamic, real-time financial platform.",
+      tech: [
+        "Better Auth",
+        "Javascript / React",
+        "CodeRabbit",
+        "Finnhub",
+        "Inngest",
+        "MongoDB",
+        "Nodemailer",
+        "Next.js",
+        "Shadcn",
+        "TailwindCSS",
+        "Typescript",
+      ],
+      demo: "https://real-time-stocks-tracking-app.vercel.app/",
+      github: "https://github.com/arbaaz1999/real-time_stocks_tracking_app",
     },
     {
       id: "ai_image_editor",
@@ -174,6 +186,15 @@ const Portfolio = () => {
       ],
       demo: "https://pixxel-teal.vercel.app/",
       github: "https://github.com/arbaaz1999/pixxel",
+    },
+    {
+      id: "portfolio",
+      title: "Personal Portfolio",
+      description:
+        "A stunning, futuristic personal portfolio showcasing full-stack development expertise with a cyberpunk-inspired dark theme. Built with React, Vite, TailwindCSS, and shadcn/ui components, this fully responsive website features neon-glow aesthetics, smooth animations, and interactive elements.",
+      tech: ["Next.js", "TailwindCSS", "ShadcnUI", "Typescript"],
+      demo: "#",
+      github: "https://github.com/arbaaz1999/portfolio",
     },
   ];
 
