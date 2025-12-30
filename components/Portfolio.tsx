@@ -191,7 +191,7 @@ const Portfolio = () => {
       id: "portfolio",
       title: "Personal Portfolio",
       description:
-        "A stunning, futuristic personal portfolio showcasing full-stack development expertise with a cyberpunk-inspired dark theme. Built with React, Vite, TailwindCSS, and shadcn/ui components, this fully responsive website features neon-glow aesthetics, smooth animations, and interactive elements.",
+        "A stunning, futuristic personal portfolio showcasing full-stack development expertise with a cyberpunk-inspired dark theme. Built with NextJS, TailwindCSS, and Shadcn UI components, this fully responsive website features neon-glow aesthetics, smooth animations, and interactive elements.",
       tech: ["Next.js", "TailwindCSS", "ShadcnUI", "Typescript"],
       demo: "#",
       github: "https://github.com/arbaaz1999/portfolio",
