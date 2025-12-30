@@ -45,6 +45,7 @@ const Portfolio = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [message, setMessage] = useState<string>("");
   const [formStatus, setFormStatus] = useState<"success" | "error" | "">("");
+  const now = new Date();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -696,8 +697,8 @@ const Portfolio = () => {
       <footer className="relative py-8 px-4 border-t border-cyan-500/20 bg-slate-950/80 backdrop-blur-md">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-slate-400">
-            © 2024 Arbaaz Mansuri. Crafted with{" "}
-            <span className="text-cyan-400">React</span> and{" "}
+            © {now.getFullYear()} Arbaaz Mansuri. Crafted with{" "}
+            <span className="text-cyan-400">NextJS</span> and{" "}
             <span className="text-purple-400">TailwindCSS</span>
           </p>
         </div>
